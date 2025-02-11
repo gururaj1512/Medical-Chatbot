@@ -8,13 +8,15 @@ from langchain_core.prompts import ChatPromptTemplate
 from dotenv import load_dotenv
 from src.prompt import *
 import os
-
+from pinecone import Pinecone, ServerlessSpec
 
 app = Flask(__name__)
 
 load_dotenv()
-os.environ["PINECONE_API_KEY"] = os.environ.get('PINECONE_API_KEY')
-os.environ["GOOGLE_API_KEY"] = os.environ.get('GOOGLE_API_KEY')
+os.environ["GOOGLE_API_KEY"] = os.environ.get('GOOGLE_MEDICAL_BOT_API_KEY')
+pc = Pinecone(
+    api_key=os.getenv('PINECONE_API_KEY')
+)
 
 embeddings = NomicEmbeddings(
     model="nomic-embed-text-v1.5"
