@@ -55,8 +55,10 @@ def chat():
     input = msg
     print(input)
     response = rag_chain.invoke({"input": msg})
-    print("Response : ", response["answer"])
-    return str(response["answer"])
+    # Convert markdown to HTML
+    formatted_response = response["answer"].replace("\n", "<br>").replace("• ", "<br>• ")
+    print("Response : ", formatted_response)
+    return formatted_response
 
 
 

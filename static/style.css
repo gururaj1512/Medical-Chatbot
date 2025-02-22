@@ -221,3 +221,19 @@ border-radius: 0 0 15px 15px !important;
 	margin-bottom: 15px !important;
 }
 }
+
+/* Add these styles at the end of your existing CSS */
+
+.msg_cotainer br {
+    display: block;
+    margin: 5px 0;
+}
+
+.msg_cotainer ul, .msg_cotainer ol {
+    margin: 5px 0 5px 20px;
+    text-align: left;
+}
+
+.msg_cotainer p {
+    margin: 5px 0;
+}
